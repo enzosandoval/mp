@@ -1,0 +1,47 @@
+CRF
+; aquí vamos
+BUCLE1 SFZ ; F = 0 True ? False ... ordenado == 1, !ordenado == 0
+JMP FIN
+CRA
+ADD $FF
+CTA
+ITA
+ITA
+STA $03; longitud negativa + 1 equivalente a  while i < len(lista) - 1: en Python
+CRA
+ADD $01
+STA $05
+BUCLE2 CRA
+ADDI $05
+STA $00
+CRA
+ADD $05
+STA $04
+ISZ $04
+CRA
+ADDI $05
+CTA
+ITA
+ADDI $04
+CRF
+ROL
+SFZ
+JMP INTERCAMBIAR
+CRF
+CFT
+BUCLE3 ISZ $05
+ISZ $03
+JMP BUCLE2
+JMP BUCLE1
+INTERCAMBIAR CRA
+ADDI $04
+STA $00
+CRA
+ADDI $05
+STAI $04
+CRA 
+ADD $00
+STAI $05
+CRF
+JMP BUCLE3
+FIN HLT
